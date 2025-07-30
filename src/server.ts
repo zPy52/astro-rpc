@@ -6,7 +6,7 @@ type ProcedureFunction<I, O> = (
   args: {
     input: I;
   } & APIContext
-) => O | Promise<O>;
+) => O| Promise<O>;
 
 class ARPCProcedure<
   I extends ZodTypeAny = ZodTypeAny,
@@ -15,11 +15,7 @@ class ARPCProcedure<
   private handler!: ProcedureFunction<I, O>;
   public constructor(private schemas: EndpointInfo<I, O>) {}
 
-  /**
-   * Attach the resolver for the procedure.
-   * The developer-defined resolver receives the already validated `input`
-   * directly, **not** the wrapper object used internally by the RPC runtime.
-   */
+
   public proceed<NewO extends ZodTypeAny>(
     fn: ({
       input,
@@ -27,7 +23,7 @@ class ARPCProcedure<
     }: {
       input: z.infer<I>;
       astroProps: APIContext;
-    }) => NewO | Promise<NewO>
+    }) => z.infer<NewO> | Promise<z.infer<NewO>>
   ) {
     this.handler = (async (args: any) => await fn(args)) as any;
 
