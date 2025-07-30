@@ -22,3 +22,10 @@ export class EndpointInfo<
     this.endpoint = endpoint;
   }
 }
+
+export function createInfo<
+  I extends ZodTypeAny = ZodTypeAny,
+  O extends ZodTypeAny = ZodTypeAny
+>(args: { endpoint: string; input: I; output: O }) {
+  return new EndpointInfo(args);
+}
