@@ -1,7 +1,8 @@
 {
-  "name": "getrx",
-  "version": "0.2.5",
-  "description": "Sublimely simple state management library for React.",
+  "name": "astro-rpc",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "RPC library for the Astro framework that leverages POST APIRoutes",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
@@ -25,13 +26,14 @@
   ],
   "author": "Antonio Peña Peña",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/zPy52/getrx",
+  "homepage": "https://github.com/zPy52/astro-rpc",
   "devDependencies": {
     "@types/node": "^24.0.3",
     "@types/react": "^19.1.8",
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "react": "^19.1.0"
+    "astro": "^5.12.6",
+    "zod": "^3.25.76"
   }
 }
