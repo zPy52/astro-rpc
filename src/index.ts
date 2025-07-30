@@ -1,2 +1,2 @@
-export { createARPC } from './server';
-export { createARPCClient } from './client';
+export { createARPC } from '@/server';
+export { createARPCClient } from '@/client';

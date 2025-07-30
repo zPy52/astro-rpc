@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { ARPCProcedure } from './server';
+import type { ARPCProcedure } from '@/server';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 /**

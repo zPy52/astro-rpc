@@ -12,17 +12,14 @@
     }
   },
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch"
+    "build": "tsc --build --declaration && tsc-alias",
+    "prepare": "tsc --build --declaration && tsc-alias"
   },
   "keywords": [
-    "react",
-    "state",
-    "management",
-    "state management",
-    "reactive",
-    "ui",
-    "hooks"
+    "astro",
+    "rpc",
+    "api",
+    "endpoints"
   ],
   "author": "Antonio Peña Peña",
   "license": "Apache-2.0",
@@ -30,6 +27,7 @@
   "devDependencies": {
     "@types/node": "^24.0.3",
     "@types/react": "^19.1.8",
+    "tsc-alias": "^1.8.16",
     "typescript": "^5.8.3"
   },
   "dependencies": {
