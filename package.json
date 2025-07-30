@@ -1,6 +1,6 @@
 {
   "name": "astro-rpc",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "description": "RPC library for the Astro framework that leverages POST APIRoutes",
   "main": "dist/index.js",
