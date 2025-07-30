@@ -6,7 +6,7 @@ type ProcedureFunction<I, O> = (
   args: {
     input: I;
   } & APIContext
-) => O| Promise<O>;
+) => O | Promise<O>;
 
 class ARPCProcedure<
   I extends ZodTypeAny = ZodTypeAny,
@@ -15,15 +15,12 @@ class ARPCProcedure<
   private handler!: ProcedureFunction<I, O>;
   public constructor(private schemas: EndpointInfo<I, O>) {}
 
-
   public proceed<NewO extends ZodTypeAny>(
-    fn: ({
-      input,
-      astroProps,
-    }: {
-      input: z.infer<I>;
-      astroProps: APIContext;
-    }) => z.infer<NewO> | Promise<z.infer<NewO>>
+    fn: (
+      args: {
+        input: z.infer<I>;
+      } & APIContext
+    ) => z.infer<NewO> | Promise<z.infer<NewO>>
   ) {
     this.handler = (async (args: any) => await fn(args)) as any;
 
