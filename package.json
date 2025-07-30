@@ -1,0 +1,37 @@
+{
+  "name": "getrx",
+  "version": "0.2.5",
+  "description": "Sublimely simple state management library for React.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": [
+    "react",
+    "state",
+    "management",
+    "state management",
+    "reactive",
+    "ui",
+    "hooks"
+  ],
+  "author": "Antonio Peña Peña",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/zPy52/getrx",
+  "devDependencies": {
+    "@types/node": "^24.0.3",
+    "@types/react": "^19.1.8",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "react": "^19.1.0"
+  }
+}
