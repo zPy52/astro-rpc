@@ -1,6 +1,6 @@
-import type { APIContext, APIRoute } from "astro";
 import { z, type ZodTypeAny } from "zod";
-import type { EndpointInfo } from "./info";
+import type { EndpointInfo } from "@/info";
+import type { APIContext, APIRoute } from "astro";
 
 type ProcedureFunction<I, O> = (
   args: {
@@ -46,6 +46,7 @@ class ARPCProcedure<
           headers: { "Content-Type": "application/json" },
         });
       } catch (e: any) {
+        console.error(`[ARPC SERVER ERROR] ${e}`);
         return new Response(
           JSON.stringify({ error: e?.message ?? "Server error" }),
           { status: 500, headers: { "Content-Type": "application/json" } }

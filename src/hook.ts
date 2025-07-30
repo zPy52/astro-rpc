@@ -1,5 +1,5 @@
-import type { EndpointInfo } from "@/info";
 import type { z, ZodTypeAny } from "zod";
+import type { EndpointInfo } from "@/info";
 import { useCallback, useMemo, useState } from "react";
 
 type EndpointFn<I extends ZodTypeAny, O extends ZodTypeAny> = {
@@ -33,6 +33,10 @@ export function useEndpoint<
             },
             body: JSON.stringify(input),
           });
+
+          if (response.status === 500) {
+            throw new Error((await response.json())?.error ?? "Server error");
+          }
 
           const parsedOutput = info.output.parse(await response.json());
           setData(parsedOutput);
