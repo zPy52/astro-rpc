@@ -107,12 +107,12 @@ export function createARPC() {
 }
 
 
-class ARPCSubroute {
+class ARPCSubroute<Schema extends ZodTypeAny = ZodTypeAny, O = unknown> {
   public routes<T>(args: T): T {
     return args;
   }
 
-  public procedure<Schema extends ZodTypeAny = ZodTypeAny, O = unknown>() {
+  public get procedure() {
     return new ARPCProcedure<Schema, O>();
   }
   
